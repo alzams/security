@@ -1,0 +1,53 @@
+openapi: 3.0.0
+info:
+  title: Entra ID Permissions API
+  description: API to retrieve application and delegated permissions for Azure AD applications.
+  #Examples
+  #Can you summarize the Entra ID applications permissions to identify the application with highest level of permissions?
+  #Can you output a table of the most privileged Entra ID applications?
+  #Can you output a list of all Entra ID applications with assigned permissions.
+	#Show me privileged Entra ID applications.
+  version: "v1"
+
+servers:
+    - url: https://<FUNCTION_APP_NAME>.azurewebsites.net/api/entra
+
+paths:
+  /getApplicationPermissions:
+    get:
+      summary: Get Application Permissions
+      description: Retrieve application-level permissions for all Entra ID applications.
+      responses:
+        '200':
+          description: A list of application permissions for each Entra ID application.
+          content:
+            application/json:
+
+  /getDelegatedPermissions:
+    get:
+      summary: Get Delegated Permissions
+      description: Retrieve delegated-level permissions for all Entra ID applications.
+      responses:
+        '200':
+          description: A list of delegated permissions for each Entra ID application.
+          content:
+            application/json:
+
+components:
+  schemas:
+    PermissionsResponse:
+      type: object
+      description: A mapping of application names to their respective permissions.
+      additionalProperties:
+        type: array
+        items:
+          type: string
+          description: Permission string.
+      example:
+        MedvedackerDefenderApp:
+          - Application.Read.All
+          - Directory.Read.All
+          - SecurityAlert.Read.All
+          - SecurityIncident.Read.All
+        Gascony:
+          - Mail.Read
