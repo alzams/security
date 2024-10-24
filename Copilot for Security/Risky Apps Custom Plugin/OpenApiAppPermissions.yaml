@@ -6,7 +6,7 @@ info:
   #Can you summarize the Entra ID applications permissions to identify the application with highest level of permissions?
   #Can you output a table of the most privileged Entra ID applications?
   #Can you output a list of all Entra ID applications with assigned permissions.
-	#Show me privileged Entra ID applications.
+  #Show me privileged Entra ID applications.
   version: "v1"
 
 servers:
