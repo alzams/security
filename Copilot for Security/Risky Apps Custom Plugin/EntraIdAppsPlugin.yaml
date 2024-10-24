@@ -1,0 +1,18 @@
+Descriptor:
+  Name: Get Entra ID applications permissions
+  DisplayName: Get Entra ID applications permissions
+  Description: Get Entra ID applications permissions to identify application and delegated type permissions
+
+
+  SupportedAuthTypes:
+    - ApiKey
+  Authorization:
+    Type: APIKey
+    Key: x-functions-key
+    Location: Header
+    AuthScheme: ''
+
+SkillGroups:
+  - Format: API
+    Settings:
+      OpenApiSpecUrl: https://github.com/alzams/security/blob/main/Copilot%20for%20Security/Risky%20Apps%20Custom%20Plugin/OpenApiAppPermissions.yaml
